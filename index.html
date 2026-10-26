@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- MyLead Verification Meta Tag -->
+    <meta name="mylead-verification" content="d33c8fa1d45f2c7077ded9bae29eed00">
+    
+    <title>Find 18+ Dating Partners | Finde 18+ Dating Partner | Vind 18+ Dating Partners</title>
+    <meta name="description" content="Join the exclusive adult dating community. Find dating partners nearby in your language.">
+    
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 15px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .language-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid #ff69b4;
+            padding: 5px 12px;
+            margin: 0 3px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover, .language-btn.active {
+            background: #ff69b4;
+            transform: scale(1.05);
+        }
+        
+        /* Konten bahasa - sembunyikan semua kecuali yang aktif */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff69b4;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            color: white;
+            background: url('https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff69b4;
+            color: white;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #8a2be2;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #8a2be2;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff69b4 0%, #8a2be2 100%);
+            color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #8a2be2;
+            color: white;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+            color: white;
+        }
+        
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #ff69b4;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            margin-top: 20px;
+            opacity: 0.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .language-selector {
+                top: 70px;
+                right: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MyLead Verification HTML Comment -->
+    <!-- mylead-verification: d33c8fa1d45f2c7077ded9bae29eed00 -->
+    
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="de">DE</button>
+        <button class="language-btn" data-lang="nl">NL</button>
+    </div>
+
+    <!-- ==================== ENGLISH CONTENT ==================== -->
+    <div id="content-en" class="lang-content">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">Dating<span style="color: #ff69b4;">18+</span></div>
+                    <nav>
+                        <a href="#features" style="color: white; margin-left: 20px; text-decoration: none;">Features</a>
+                        <a href="#testimonials" style="color: white; margin-left: 20px; text-decoration: none;">Testimonials</a>
+                        <a href="#how-it-works" style="color: white; margin-left: 20px; text-decoration: none;">How It Works</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find 18+ Dating Partners Nearby</h1>
+                    <p>Join the exclusive adult dating community. Find someone with similar interests and start a new adventure!</p>
+                    <a href="https://safeoffers.pro/a/82XZjfkKqF2YwQ" class="cta-button" target="_blank">JOIN FREE NOW</a>
+                    <p style="margin-top: 15px; font-size: 14px;">Join 50,000+ active members</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Our Platform?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Guaranteed</h3>
+                        <p>Your profile is protected with high-level security. You control who can see your personal information.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Local Search</h3>
+                        <p>Find dating partners in your area. Filter by age, interests, and location for precise matches.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Live Chat</h3>
+                        <p>Real-time chat feature allows you to connect directly with potential partners without limitations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Members Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I found the right dating partner within a week. This platform really changed my social life!"</p>
+                        <p class="testimonial-author">- John, 28</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"As a woman, I feel very safe using this platform. The strict verification system makes me comfortable."</p>
+                        <p class="testimonial-author">- Sarah, 25</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Easy to use app with an active community. I've met several interesting people through this platform."</p>
+                        <p class="testimonial-author">- Michael, 32</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How to Join</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Free Registration</h3>
+                        <p>Create an account with email and basic information. The process is quick and easy.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Complete Profile</h3>
+                        <p>Add photos and description to attract potential partners.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Find & Connect</h3>
+                        <p>Browse other members' profiles and start conversations with interesting people.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2>Ready to Start Your Dating Adventure?</h2>
+                <p>Join thousands of other members who have found their ideal partners.</p>
+                <a href="https://safeoffers.pro/a/82XZjfkKqF2YwQ" class="cta-button" target="_blank" style="margin-top: 30px;">JOIN NOW - FREE</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Help</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="disclaimer">
+                    *This site is intended for individuals aged 18 and over. By accessing this site, you agree that you have met the minimum age requirements.
+                    Results may vary depending on individual effort and commitment.
+                </p>
+                <p>&copy; 2023 Dating18+. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==================== GERMAN CONTENT ==================== -->
+    <div id="content-de" class="lang-content">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">Dating<span style="color: #ff69b4;">18+</span></div>
+                    <nav>
+                        <a href="#features" style="color: white; margin-left: 20px; text-decoration: none;">Funktionen</a>
+                        <a href="#testimonials" style="color: white; margin-left: 20px; text-decoration: none;">Erfahrungen</a>
+                        <a href="#how-it-works" style="color: white; margin-left: 20px; text-decoration: none;">So funktioniert's</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Finde 18+ Dating-Partner in deiner Nähe</h1>
+                    <p>Tritt der exklusiven Dating-Community für Erwachsene bei. Finde jemanden mit ähnlichen Interessen und starte ein neues Abenteuer!</p>
+                    <a href="https://safeoffers.pro/a/82XZjfkKqF2YwQ" class="cta-button" target="_blank">JETZT KOSTENLOS BEITRETEN</a>
+                    <p style="margin-top: 15px; font-size: 14px;">Tritt 50.000+ aktiven Mitgliedern bei</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Warum unsere Plattform wählen?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Datenschutz garantiert</h3>
+                        <p>Dein Profil ist durch hochwertige Sicherheit geschützt. Du bestimmst, wer deine persönlichen Informationen sehen kann.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Lokale Suche</h3>
+                        <p>Finde Dating-Partner in deiner Umgebung. Filtere nach Alter, Interessen und Standort für passende Matches.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Live-Chat</h3>
+                        <p>Echtzeit-Chat-Funktion ermöglicht direkten Kontakt mit potenziellen Partnern ohne Einschränkungen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Was unsere Mitglieder sagen</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Ich habe innerhalb einer Woche den richtigen Dating-Partner gefunden. Diese Plattform hat mein Sozialleben wirklich verändert!"</p>
+                        <p class="testimonial-author">- Thomas, 28</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Als Frau fühle ich mich hier sehr sicher. Das strenge Verifizierungssystem gibt mir ein gutes Gefühl."</p>
+                        <p class="testimonial-author">- Anna, 25</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Benutzerfreundliche App mit aktiver Community. Ich habe bereits mehrere interessante Menschen kennengelernt."</p>
+                        <p class="testimonial-author">- Markus, 32</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title">So kannst du mitmachen</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Kostenlose Anmeldung</h3>
+                        <p>Erstelle ein Konto mit E-Mail und grundlegenden Informationen. Der Prozess ist schnell und einfach.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Profil vervollständigen</h3>
+                        <p>Füge Fotos und eine Beschreibung hinzu, um potenzielle Partner anzuziehen.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Finden & Verbinden</h3>
+                        <p>Durchsuche Profile anderer Mitglieder und beginne Gespräche mit interessanten Menschen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2>Bereit für dein Dating-Abenteuer?</h2>
+                <p>Tritt Tausenden von Mitgliedern bei, die ihren idealen Partner gefunden haben.</p>
+                <a href="https://safeoffers.pro/a/82XZjfkKqF2YwQ" class="cta-button" target="_blank" style="margin-top: 30px;">JETZT BEITRETEN - KOSTENLOS</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-links">
+                    <a href="#">Datenschutz</a>
+                    <a href="#">AGB</a>
+                    <a href="#">Hilfe</a>
+                    <a href="#">Kontakt</a>
+                </div>
+                <p class="disclaimer">
+                    *Diese Seite ist für Personen ab 18 Jahren bestimmt. Durch den Zugriff auf diese Seite bestätigst du, dass du das Mindestalter erreicht hast.
+                    Ergebnisse können je nach individuellem Einsatz und Engagement variieren.
+                </p>
+                <p>&copy; 2023 Dating18+. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==================== DUTCH CONTENT ==================== -->
+    <div id="content-nl" class="lang-content">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">Dating<span style="color: #ff69b4;">18+</span></div>
+                    <nav>
+                        <a href="#features" style="color: white; margin-left: 20px; text-decoration: none;">Functies</a>
+                        <a href="#testimonials" style="color: white; margin-left: 20px; text-decoration: none;">Ervaringen</a>
+                        <a href="#how-it-works" style="color: white; margin-left: 20px; text-decoration: none;">Hoe het werkt</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Vind 18+ Dating-Partners in de Buurt</h1>
+                    <p>Word lid van de exclusieve datingcommunity voor volwassenen. Vind iemand met dezelfde interesses en begin een nieuw avontuur!</p>
+                    <a href="https://safeoffers.pro/a/82XZjfkKqF2YwQ" class="cta-button" target="_blank">WORD NU GRATIS LID</a>
+                    <p style="margin-top: 15px; font-size: 14px;">Sluit je aan bij 50.000+ actieve leden</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Waarom ons platform kiezen?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy gegarandeerd</h3>
+                        <p>Je profiel is beschermd met hoogwaardige beveiliging. Jij bepaalt wie je persoonlijke informatie kan zien.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Lokaal zoeken</h3>
+                        <p>Vind datingpartners in jouw omgeving. Filter op leeftijd, interesses en locatie voor precieze matches.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Live chat</h3>
+                        <p>Real-time chatfunctie stelt je in staat om direct contact te leggen met potentiële partners zonder beperkingen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Wat onze leden zeggen</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Ik vond de juiste datingpartner binnen een week. Dit platform heeft mijn sociale leven echt veranderd!"</p>
+                        <p class="testimonial-author">- David, 28</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Als vrouw voel ik me heel veilig op dit platform. Het strenge verificatiesysteem stelt me gerust."</p>
+                        <p class="testimonial-author">- Lisa, 25</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Gebruiksvriendelijke app met een actieve community. Ik heb verschillende interessante mensen ontmoet via dit platform."</p>
+                        <p class="testimonial-author">- Kevin, 32</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title">Hoe mee te doen</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Gratis registratie</h3>
+                        <p>Maak een account aan met e-mail en basisinformatie. Het proces is snel en eenvoudig.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Profiel voltooien</h3>
+                        <p>Voeg foto's en een beschrijving toe om potentiële partners aan te trekken.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Vinden & Verbinden</h3>
+                        <p>Bekijk profielen van andere leden en start gesprekken met interessante mensen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2>Klaar om aan je datingavontuur te beginnen?</h2>
+                <p>Sluit je aan bij duizenden andere leden die hun ideale partner hebben gevonden.</p>
+                <a href="https://safeoffers.pro/a/XDYKZS9zKuD29p" class="cta-button" target="_blank" style="margin-top: 30px;">WORD LID - GRATIS</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-links">
+                    <a href="#">Privacybeleid</a>
+                    <a href="#">Algemene voorwaarden</a>
+                    <a href="#">Help</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="disclaimer">
+                    *Deze site is bedoeld voor personen van 18 jaar en ouder. Door toegang te krijgen tot deze site ga je akkoord met het feit dat je aan de minimumleeftijdsvereisten voldoet.
+                    Resultaten kunnen variëren afhankelijk van individuele inspanning en toewijding.
+                </p>
+                <p>&copy; 2023 Dating18+. Alle rechten voorbehouden.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Fungsi untuk mendeteksi bahasa browser
+        function detectBrowserLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const mainLang = userLang.split('-')[0];
+            
+            // Prioritaskan bahasa yang didukung
+            const supportedLangs = ['en', 'de', 'nl'];
+            if (supportedLangs.includes(mainLang)) {
+                return mainLang;
+            }
+            
+            // Default ke English jika bahasa tidak didukung
+            return 'en';
+        }
+
+        // Fungsi ganti bahasa
+        function switchLanguage(lang) {
+            // Sembunyikan semua konten bahasa
+            document.querySelectorAll('.lang-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Tampilkan konten bahasa yang dipilih
+            document.getElementById(`content-${lang}`).classList.add('active');
+            
+            // Update tombol bahasa yang aktif
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Simpan preferensi bahasa
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update atribut lang di html
+            document.documentElement.lang = lang;
+        }
+
+        // Event listener untuk tombol bahasa
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                switchLanguage(this.dataset.lang);
+            });
+        });
+
+        // Saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cek apakah ada preferensi bahasa yang disimpan
+            const savedLang = localStorage.getItem('preferred-language');
+            const browserLang = detectBrowserLanguage();
+            
+            // Gunakan bahasa yang disimpan atau deteksi browser
+            const initialLang = savedLang || browserLang;
+            
+            // Set bahasa awal
+            switchLanguage(initialLang);
+            
+            // Smooth scroll untuk navigasi
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
